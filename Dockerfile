@@ -3,7 +3,7 @@ FROM ${ARCH}python:3.12.0-slim-bookworm as builder
 
 WORKDIR /enviroplus
 
-RUN ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     python3 \
