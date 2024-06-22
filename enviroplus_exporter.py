@@ -295,7 +295,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Start up the server to expose the metrics.
-    start_http_server(addr=args.bind, port=args.port)
+    #  start_http_server(addr=args.bind, port=args.port)
     # Generate some requests.
 
     if args.debug:
@@ -317,7 +317,7 @@ if __name__ == '__main__':
         luftdaten_thread = Thread(target=post_to_luftdaten)
         luftdaten_thread.start()
 
-    logging.info("Listening on http://{}:{}".format(args.bind, args.port))
+    #  logging.info("Listening on http://{}:{}".format(args.bind, args.port))
 
     while True:
         get_temperature(args.factor)
