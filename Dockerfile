@@ -3,14 +3,19 @@ FROM ${ARCH}python:3.12.0-slim-bookworm as builder
 
 WORKDIR /enviroplus
 
-RUN ln -fs /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+# RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     python3 \
-    python3-pip
+    python3-pip \
+    python3-numpy \
+    python3-pil
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     build-essential libssl-dev libffi-dev python3-dev cmake
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
+    autoconf ninja-build
 
 COPY requirements.txt .
 
